@@ -133,13 +133,13 @@
 <body>
   <div class="page">
     <h1>Privacy Policy</h1>
-    <p class="meta">Effective date: May 10, 2026 &nbsp;·&nbsp; Version 1.0</p>
+    <p class="meta">Effective date: May 27, 2026 &nbsp;·&nbsp; Version 2.0</p>
 
     <hr />
 
     <section>
       <h2>1. Overview</h2>
-      <p>2doc ("the app", "we", "us") is a document-creation tool that reads data already on your device — messages, call logs, contacts, calendar events, and device info — and helps you export it as a PDF. Your privacy is central to how the app is designed: <strong>all source data stays on your device</strong> and is never uploaded to our servers.</p>
+      <p>2doc ("the app", "we", "us") is a document-creation tool that reads data already on your device — messages, photos, call logs, contacts, calendar events, and device info — and helps you export it as a PDF. Your privacy is central to how the app is designed: <strong>all source data stays on your device</strong> and is never uploaded to our servers.</p>
       <p>This policy explains exactly what we collect, what leaves your device, and who else may receive information about you.</p>
     </section>
 
@@ -147,13 +147,14 @@
       <h2>2. Data that stays on your device</h2>
       <p>The following sources are read locally to build your documents. Nothing from these sources is transmitted to us or any third party:</p>
       <ul>
-        <li><span class="tag">SMS / MMS</span> text messages and media on your device</li>
+        <li><span class="tag">Messages</span> SMS, MMS, and RCS text messages your device stores alongside them</li>
         <li><span class="tag">Call log</span> call history (number, duration, direction)</li>
         <li><span class="tag">Contacts</span> names, phone numbers, email addresses</li>
         <li><span class="tag">Calendar</span> events from calendars you select when building a document</li>
-        <li><span class="tag">Device info</span> hardware model, OS version, storage, installed apps</li>
+        <li><span class="tag">Device info</span> hardware model, OS version, installed apps and their usage details</li>
         <li><span class="tag">Telegram</span> messages and media accessed via the Telegram API on your behalf</li>
         <li><span class="tag">WhatsApp</span> exported chat files you provide to the app</li>
+        <li><span class="tag">Images</span> photos you select from your device to embed in a document</li>
       </ul>
       <p>Generated PDFs are saved to your device's local storage. They are never uploaded unless <em>you</em> choose to share them.</p>
     </section>
@@ -182,11 +183,12 @@
       <h2>4. Permissions</h2>
       <p>The app requests the following Android permissions only to provide its core functionality:</p>
       <ul>
-        <li><strong>READ_SMS / READ_MMS</strong> — to read SMS and MMS messages</li>
+        <li><strong>READ_SMS</strong> — to read SMS, MMS, and RCS text messages stored by the system messaging app</li>
         <li><strong>READ_CALL_LOG</strong> — to read the call history</li>
         <li><strong>READ_CONTACTS</strong> — to read contact names and details</li>
         <li><strong>READ_CALENDAR</strong> — to read calendar events</li>
-        <li><strong>READ_EXTERNAL_STORAGE / MANAGE_EXTERNAL_STORAGE</strong> — to read WhatsApp exports you select and to write generated PDFs</li>
+        <li><strong>QUERY_ALL_PACKAGES</strong> — to list the apps installed on your device</li>
+        <li><strong>PACKAGE_USAGE_STATS</strong> — to read app usage details for the installed-app sections</li>
         <li><strong>INTERNET</strong> — to connect to Telegram's API and to send analytics events and crash reports</li>
         <li><strong>BILLING</strong> — to process the one-time Pro purchase via Google Play</li>
       </ul>
