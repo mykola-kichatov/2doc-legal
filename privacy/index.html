@@ -133,22 +133,23 @@
 <body>
   <div class="page">
     <h1>Privacy Policy</h1>
-    <p class="meta">Effective date: June 10, 2026 &nbsp;·&nbsp; Version 2.1</p>
+    <p class="meta">Effective date: July 13, 2026 &nbsp;·&nbsp; Version 3.0</p>
 
     <hr />
 
     <section>
       <h2>1. Overview</h2>
-      <p>2doc ("the app", "we", "us") is a document-creation tool that reads data already on your device — messages, photos, call logs, contacts, calendar events, and device info — and helps you export it as a PDF. Your privacy is central to how the app is designed: <strong>all source data stays on your device</strong> and is never uploaded to our servers.</p>
+      <p>2doc ("the app", "we", "us") works with data already on your device, and does two things with it: it builds documents — reading your messages, photos, call logs, contacts, calendar events, and device info, and exporting them as a PDF — and it backs up and restores your messages and call history. Your privacy is central to how the app is designed: <strong>all source data stays on your device</strong> and is never uploaded to our servers.</p>
       <p>This policy explains exactly what we collect, what leaves your device, and who else may receive information about you.</p>
     </section>
 
     <section>
       <h2>2. Data that stays on your device</h2>
-      <p>The following sources are read locally to build your documents. Nothing from these sources is transmitted to us or any third party:</p>
+      <p>The following sources are read locally to build your documents and backup files. The app itself transmits nothing from these sources to us or to any third party — content leaves your device only when you choose to share it:</p>
       <ul>
         <li><span class="tag">Messages</span> SMS, MMS, and RCS text messages your device stores alongside them</li>
         <li><span class="tag">Call log</span> call history (number, duration, direction)</li>
+        <li><span class="tag">Backups</span> backup files you create from your messages or call history — stored in the app's private folder on this device (see Section 3)</li>
         <li><span class="tag">Contacts</span> names, phone numbers, email addresses</li>
         <li><span class="tag">Calendar</span> events from calendars you select when building a document</li>
         <li><span class="tag">Device info</span> hardware model, OS version, apps visible in your launcher and their usage details</li>
@@ -156,16 +157,27 @@
         <li><span class="tag">WhatsApp</span> exported chat files you provide to the app</li>
         <li><span class="tag">Images</span> photos you select from your device to embed in a document</li>
       </ul>
-      <p>Generated PDFs are saved to your device's local storage. They are never uploaded unless <em>you</em> choose to share them.</p>
+      <p>Generated PDFs and backup files are saved locally on your device. They are never uploaded unless <em>you</em> choose to share them.</p>
     </section>
 
     <section>
-      <h2>3. Data that leaves your device</h2>
+      <h2>3. Backup &amp; Restore</h2>
+      <p>The Backup feature saves your messages and call history into files you control. Everything below happens on your device — we never see or receive your backups.</p>
+      <p><strong>What a backup contains.</strong> You choose what to back up. A messages backup contains your SMS and MMS, including photos and other attachments embedded in the file. A call-log backup contains each call's number, date, duration, type (incoming, outgoing, missed, and similar), and whether the caller's number was shown or hidden. Contact names from your address book are included in both so the files are readable. Each type is saved as its own file, in the same XML format used by the popular "SMS Backup &amp; Restore" apps — so your backups are not locked to 2doc.</p>
+      <p><strong>Where backups live.</strong> Backup files are stored in the app's private storage on your device, where other apps cannot read them. The app keeps only the latest backup of each type — creating a new one replaces the previous one. Backups are created only when you tap the button: there is no scheduling and no background backup.</p>
+      <p><strong>Encryption is optional.</strong> You can protect a backup with a password. If you do, the file is encrypted with AES-256 and saved as a <em>.2doc</em> file; your password is never stored anywhere, which also means a lost password makes that backup permanently unrecoverable — even by us. If you skip the password, the backup is an ordinary readable <em>.xml</em> file, so treat it with the same care as the messages inside it.</p>
+      <p><strong>Backups leave your device only when you share them.</strong> The app never uploads, syncs, or transmits backup files. The only way a backup leaves your device is the Share button, which hands the file to an app you pick in the Android share sheet. 2doc's data — backups included — is also excluded from Android's own cloud backup and device-to-device transfer.</p>
+      <p><strong>Restoring.</strong> You can restore from the backup stored on this device or from a backup file you pick with the system file picker. Restoring messages writes them back into your phone's message store; Android only allows this while 2doc is your default SMS app, so the app asks you to make it the default temporarily and prompts you to switch your usual app back as soon as the restore finishes. While 2doc is the default, incoming texts are received and saved unchanged into your phone's message store, and 2doc cannot send messages at all. Restoring a call-log backup writes the calls back into your call history.</p>
+      <p><strong>Restore only adds.</strong> Before restoring, the app reads your existing messages or call log for one purpose: to skip entries that are already on your phone. Restore never deletes or modifies anything.</p>
+    </section>
+
+    <section>
+      <h2>4. Data that leaves your device</h2>
       <p>The app uses the following services, each of which may receive limited information:</p>
 
       <div class="card">
         <h3>Firebase (Google)</h3>
-        <p>We use Firebase Analytics to understand feature usage (e.g. "user exported a PDF") and Firebase Crashlytics to receive crash reports. Analytics events contain no personal content from your messages or files — only anonymised usage signals and a randomly generated device identifier.</p>
+        <p>We use Firebase Analytics to understand feature usage (e.g. "user exported a PDF") and Firebase Crashlytics to receive crash reports. Analytics events contain no personal content from your messages, files, or backups — only anonymised usage signals and a randomly generated device identifier.</p>
       </div>
 
       <div class="card">
@@ -180,38 +192,41 @@
     </section>
 
     <section>
-      <h2>4. Permissions</h2>
+      <h2>5. Permissions</h2>
       <p>The app requests the following Android permissions only to provide its core functionality:</p>
       <ul>
-        <li><strong>READ_SMS</strong> — to read SMS, MMS, and RCS text messages stored by the system messaging app</li>
-        <li><strong>READ_CALL_LOG</strong> — to read the call history</li>
-        <li><strong>READ_CONTACTS</strong> — to read contact names and details</li>
+        <li><strong>READ_SMS</strong> — to read SMS, MMS, and RCS text messages for the document sections you add and the message backups you create, and — during a restore — to skip messages already on your phone</li>
+        <li><strong>RECEIVE_SMS</strong> — used only while 2doc is temporarily your default SMS app during a messages restore: it lets the app save incoming texts unchanged into your phone's message store so none are lost while your usual app is switched away</li>
+        <li><strong>READ_CALL_LOG</strong> — to read the call history for document sections and call-log backups, and — during a restore — to skip calls already in the log</li>
+        <li><strong>WRITE_CALL_LOG</strong> — to write calls back into your call history when you restore a call-log backup</li>
+        <li><strong>READ_CONTACTS</strong> — to read contact names and details, shown next to phone numbers in your documents and backups</li>
         <li><strong>READ_CALENDAR</strong> — to read calendar events</li>
         <li><strong>PACKAGE_USAGE_STATS</strong> — to read app usage details for the app sections</li>
         <li><strong>INTERNET</strong> — to connect to Telegram's API and to send analytics events and crash reports</li>
         <li><strong>BILLING</strong> — to process the one-time Pro purchase via Google Play</li>
       </ul>
+      <p><strong>The default-SMS-app role.</strong> Restoring messages is only allowed by Android while 2doc is your default SMS app. This is a role you grant in a system dialog, not a permission: 2doc asks for it when you start a messages restore and prompts you to switch your usual app back as soon as the restore finishes. Android also requires a default SMS app to register compose and quick-reply components — in 2doc these are deliberately non-functional, because the app cannot send messages. See Section 3.</p>
       <p>The app does not request the QUERY_ALL_PACKAGES permission. App-related sections rely on Android's package-visibility rules, so the app can only see apps that appear in your launcher.</p>
     </section>
 
     <section>
-      <h2>5. Data retention</h2>
+      <h2>6. Data retention</h2>
       <p>We do not store your device data on any server. Crash reports are retained by Firebase Crashlytics for 90 days. Analytics data is retained according to Google's standard Firebase Analytics retention settings (default: 14 months). RevenueCat retains purchase records as required for purchase verification and legal compliance.</p>
-      <p>If you uninstall the app, locally stored preferences and PDF files are removed with it. To request deletion of analytics or crash data, contact us at the address below.</p>
+      <p>Backup files live in the app's private storage and follow a simple rule: only the latest backup of each type is kept, and a backup file is removed only when a newer one replaces it or when you uninstall the app. If you uninstall the app, locally stored preferences, PDF files, and backup files are all removed with it. Copies of backups or PDFs that you have shared out of the app live wherever you sent them and are under your control, not ours. To request deletion of analytics or crash data, contact us at the address below.</p>
     </section>
 
     <section>
-      <h2>6. Children's privacy</h2>
+      <h2>7. Children's privacy</h2>
       <p>The app is not directed at children under 13. We do not knowingly collect personal information from children. If you believe a child has used the app and you have concerns, contact us and we will take appropriate action.</p>
     </section>
 
     <section>
-      <h2>7. Changes to this policy</h2>
-      <p>We may update this policy. When we do, the effective date at the top will change. If you have accepted a previous version, the app will prompt you to review and accept the updated policy on your next launch.</p>
+      <h2>8. Changes to this policy</h2>
+      <p>We may update this policy. When we do, the effective date and version at the top will change. For material changes, the app will ask you to review and accept the updated policy on your next launch. For minor clarifications, we simply update the policy here.</p>
     </section>
 
     <section>
-      <h2>8. Contact</h2>
+      <h2>9. Contact</h2>
       <p>Questions or data requests:<br />
       <a href="mailto:mykola.kichatov@gmail.com">mykola.kichatov@gmail.com</a></p>
     </section>
