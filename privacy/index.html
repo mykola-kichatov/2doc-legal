@@ -133,19 +133,19 @@
 <body>
   <div class="page">
     <h1>Privacy Policy</h1>
-    <p class="meta">Effective date: July 26, 2026 &nbsp;·&nbsp; Version 3.2</p>
+    <p class="meta">Effective date: August 1, 2026 &nbsp;·&nbsp; Version 3.3</p>
 
     <hr />
 
     <section>
       <h2>1. Overview</h2>
-      <p>2doc ("the app", "we", "us") works with data already on your device, and does two things with it: it builds documents — reading your messages, photos, call logs, contacts, calendar events, and device info, and exporting them as a PDF — and it backs up and restores your messages and call history. Your privacy is central to how the app is designed: <strong>all source data stays on your device</strong> and is never uploaded to our servers.</p>
+      <p>2doc ("the app", "we", "us") works with data already on your device, and does two things with it: it builds documents — reading your messages, photos, call logs, contacts, calendar events, and device info, and exporting them as a PDF — and it backs up and restores your messages and call history. Your privacy is central to how the app is designed: <strong>all source data stays on your device</strong> and is never uploaded to our servers. One optional feature, off unless you turn it on, contacts the websites linked in your messages — Section 4 explains exactly what they receive.</p>
       <p>This policy explains exactly what we collect, what leaves your device, and who else may receive information about you.</p>
     </section>
 
     <section>
       <h2>2. Data that stays on your device</h2>
-      <p>The following sources are read locally to build your documents and backup files. The app itself transmits nothing from these sources to us or to any third party — content leaves your device only when you choose to share or print it:</p>
+      <p>The following sources are read locally to build your documents and backup files. The app itself transmits nothing from these sources to us, and nothing to any third party except through one optional feature you turn on yourself (link previews — see Section 4). Content otherwise leaves your device only when you choose to share or print it:</p>
       <ul>
         <li><span class="tag">Messages</span> SMS, MMS, and RCS text messages your device stores alongside them</li>
         <li><span class="tag">Call log</span> call history (number, duration, direction)</li>
@@ -189,6 +189,12 @@
         <h3>Telegram</h3>
         <p>When you connect a Telegram account, the app communicates directly with Telegram's API using your credentials to retrieve messages. Your Telegram session is stored locally on your device only. We never see your Telegram password or messages. You can disconnect your Telegram account at any time from Settings, which signs you out and removes the local session from your device.</p>
       </div>
+
+      <div class="card">
+        <h3>Websites linked in your messages</h3>
+        <p>When you add a Messages section to a document, one of the import options is <em>Link previews</em>. It is off unless you turn it on. With it on, 2doc requests each web address found in the messages you are importing directly from that website, over a secure (https) connection, and reads the page's title, description, and preview image so the link can appear as a card in your document. The preview image is downloaded to your device and embedded in the PDF.</p>
+        <p>Each site receives what it would receive if you opened the link in a browser: the address itself and your device's IP address. No message text and nothing else from your device is sent, and none of it passes through us. With the option off, no request is made and links are added as plain text.</p>
+      </div>
     </section>
 
     <section>
@@ -202,7 +208,8 @@
         <li><strong>READ_CONTACTS</strong> — to read contact names and details, shown next to phone numbers in your documents and backups</li>
         <li><strong>READ_CALENDAR</strong> — to read calendar events</li>
         <li><strong>PACKAGE_USAGE_STATS</strong> — to read app usage details for the app sections</li>
-        <li><strong>INTERNET</strong> — to connect to Telegram's API and to send analytics events and crash reports</li>
+        <li><strong>INTERNET</strong> — to connect to Telegram's API, to fetch link previews when you turn that import option on, and to send analytics events and crash reports</li>
+        <li><strong>ACCESS_NETWORK_STATE</strong> — to check whether you are online before fetching link previews, so an offline import finishes at once instead of waiting on every link</li>
         <li><strong>BILLING</strong> — to process the one-time Pro purchase via Google Play</li>
       </ul>
       <p><strong>The default-SMS-app role.</strong> Restoring messages is only allowed by Android while 2doc is your default SMS app. This is a role you grant in a system dialog, not a permission: 2doc asks for it when you start a messages restore and prompts you to switch your usual app back as soon as the restore finishes. Android also requires a default SMS app to register compose and quick-reply components — in 2doc these are deliberately non-functional, because the app cannot send messages. See Section 3.</p>
