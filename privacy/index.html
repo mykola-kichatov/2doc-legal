@@ -133,7 +133,7 @@
 <body>
   <div class="page">
     <h1>Privacy Policy</h1>
-    <p class="meta">Effective date: August 1, 2026 &nbsp;·&nbsp; Version 3.3</p>
+    <p class="meta">Effective date: August 8, 2026 &nbsp;·&nbsp; Version 3.4</p>
 
     <hr />
 
@@ -188,11 +188,12 @@
       <div class="card">
         <h3>Telegram</h3>
         <p>When you connect a Telegram account, the app communicates directly with Telegram's API using your credentials to retrieve messages. Your Telegram session is stored locally on your device only. We never see your Telegram password or messages. You can disconnect your Telegram account at any time from Settings, which signs you out and removes the local session from your device.</p>
+        <p><em>Voice transcription</em> is one of the import options when you add a Telegram chat, and it is off unless you turn it on. With it on, 2doc asks Telegram to transcribe the voice notes and video notes in the chat you are importing: the speech recognition runs on <strong>Telegram's</strong> servers — not on your device, and not on ours. 2doc sends only the chat and message identifiers; the audio is already in your own Telegram cloud, and neither we nor the app upload it anywhere. Telegram meters these requests against your own Telegram Premium subscription or free-trial allowance, so turning the option on can consume it. The transcript that comes back is stored locally on your device and rendered into your document.</p>
       </div>
 
       <div class="card">
         <h3>Websites linked in your messages</h3>
-        <p>When you add a Messages section to a document, one of the import options is <em>Link previews</em>. It is off unless you turn it on. With it on, 2doc requests each web address found in the messages you are importing directly from that website, over a secure (https) connection, and reads the page's title, description, and preview image so the link can appear as a card in your document. The preview image is downloaded to your device and embedded in the PDF.</p>
+        <p>When you add a Messages or WhatsApp section to a document, one of the import options is <em>Link previews</em>. It is off unless you turn it on. With it on, 2doc requests each web address found in the messages you are importing directly from that website, over a secure (https) connection, and reads the page's title, description, and preview image so the link can appear as a card in your document. The preview image is downloaded to your device and embedded in the PDF.</p>
         <p>Each site receives what it would receive if you opened the link in a browser: the address itself and your device's IP address. No message text and nothing else from your device is sent, and none of it passes through us. With the option off, no request is made and links are added as plain text.</p>
       </div>
     </section>
@@ -202,7 +203,7 @@
       <p>The app requests the following Android permissions only to provide its core functionality:</p>
       <ul>
         <li><strong>READ_SMS</strong> — to read SMS, MMS, and RCS text messages for the document sections you add and the message backups you create, and — during a restore — to skip messages already on your phone</li>
-        <li><strong>RECEIVE_SMS</strong> — used only while 2doc is temporarily your default SMS app during a messages restore: it lets the app save incoming texts unchanged into your phone's message store so none are lost while your usual app is switched away</li>
+        <li><strong>RECEIVE_SMS</strong> — used only while 2doc is temporarily your default SMS app: it lets the app save incoming texts unchanged into your phone's message store so none are lost while your usual app is switched away. There are two moments when 2doc can hold that role, and you start both yourself — restoring a messages backup, and the optional switch offered in the document builder's conversation picker (see below)</li>
         <li><strong>READ_CALL_LOG</strong> — to read the call history for document sections and call-log backups, and — during a restore — to skip calls already in the log</li>
         <li><strong>WRITE_CALL_LOG</strong> — to write calls back into your call history when you restore a call-log backup</li>
         <li><strong>READ_CONTACTS</strong> — to read contact names and details, shown next to phone numbers in your documents and backups</li>
@@ -212,7 +213,12 @@
         <li><strong>ACCESS_NETWORK_STATE</strong> — to check whether you are online before fetching link previews, so an offline import finishes at once instead of waiting on every link</li>
         <li><strong>BILLING</strong> — to process the one-time Pro purchase via Google Play</li>
       </ul>
-      <p><strong>The default-SMS-app role.</strong> Restoring messages is only allowed by Android while 2doc is your default SMS app. This is a role you grant in a system dialog, not a permission: 2doc asks for it when you start a messages restore and prompts you to switch your usual app back as soon as the restore finishes. Android also requires a default SMS app to register compose and quick-reply components — in 2doc these are deliberately non-functional, because the app cannot send messages. See Section 3.</p>
+      <p><strong>The default-SMS-app role.</strong> This is a role you grant in a system dialog, not a permission, and 2doc asks for it in exactly two places — never on its own, and never in the background:</p>
+      <ul>
+        <li><strong>Restoring messages.</strong> Android only allows an app to write messages into your phone's message store while it is the default SMS app. 2doc asks when you start a messages restore. See Section 3.</li>
+        <li><strong>Reading conversations Android hides.</strong> On newer Android versions the system hides some conversations — those it has flagged as spam or as verification codes — from every app that is not your default SMS app, so they are missing from a document you build. The conversation picker's "Missing texts?" explainer offers to make 2doc the default temporarily so those conversations become visible for the import. It is optional: skip it and everything else still works, minus the hidden conversations.</li>
+      </ul>
+      <p>In both cases 2doc reads or writes only while it actually holds the role, and shows a reminder to switch your usual app back — in the restore flow as soon as the restore finishes, and in the document builder as a banner that stays until you switch back. While 2doc is the default, incoming texts are received and saved unchanged into your phone's message store, and 2doc cannot send messages at all; picture messages (MMS) that arrive during that window may not be saved. Android also requires a default SMS app to register compose and quick-reply components — in 2doc these are deliberately non-functional, because the app cannot send messages.</p>
       <p>The app does not request the QUERY_ALL_PACKAGES permission. App-related sections rely on Android's package-visibility rules, so the app can only see apps that appear in your launcher.</p>
     </section>
 
